@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/32434981/README.md)
 # Dollar-Pegged Stablecoins and US Monetary Policy Shocks
 
 **Do USDT and USDC respond to Fed policy surprises - and do they respond differently?**
@@ -125,7 +124,7 @@ Jordà, Ò. (2005). Estimation and Inference of Impulse Responses by Local Proje
 
 ## Author
 
-**Polina Lanina** — independent payments researcher.
-Papers as Lanina, code as [@Kira-Knife](https://github.com/Kira-Knife) · [ORCID 0000-0002-3010-6813](https://orcid.org/0000-0002-3010-6813) · [kira-knife.github.io](https://kira-knife.github.io)
+**Polina Lanina** - independent payments researcher.
+Papers as Lanina, code as [@Kira-Knife](https://github.com/Kira-Knife)  [ORCID 0000-0002-3010-6813](https://orcid.org/0000-0002-3010-6813)  [kira-knife.github.io](https://kira-knife.github.io)
 
 Work done in a personal capacity. Licensed under MIT.
