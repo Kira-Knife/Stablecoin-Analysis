@@ -36,9 +36,12 @@ Event-study regressions of monthly changes in supply and adjusted on-chain volum
 - **Local projections** (Newey-West, 4 lags, horizon 12) put the peak supply response at **h=3 months**: about -4.8 bn USD for USDT and -9.5 bn for USDC per unit shock, again with no significant USDT–USDC difference.
 - **VIX co-moves strongly with supply changes** (ρ ≈ -0.64 for USDT, -0.56 for USDC): risk-off episodes are the single largest correlate of stablecoin contraction in the sample, which is why the shock-based identification matters.
 
-![Stablecoin supply, 2021–2026](figures/fig1_supply_trends.png)
+[Stablecoin supply, 2021-2026](figures/fig1_supply_trends.png)
+<img width="1387" height="587" alt="fig1_supply_trends" src="https://github.com/user-attachments/assets/56fe4614-cb93-4e4b-a1f3-9b5ffc773d22" />
 
-![Jarociński–Karadi monetary policy shocks](figures/fig3_mp_shocks.png)
+
+[Jarociński-Karadi monetary policy shocks](figures/fig3_mp_shocks.png)
+<img width="1387" height="487" alt="fig3_mp_shocks" src="https://github.com/user-attachments/assets/7542ba29-9288-495a-b9a7-48420ce2428b" />
 
 ## Data
 
