@@ -19,7 +19,7 @@ This repository tests both hypotheses on identified shocks rather than on policy
 
 ## Key findings
 
-Event-study regressions of monthly changes in supply and adjusted on-chain volume on the Jarociński–Karadi **pure monetary policy shock (MP)** and **central bank information shock (CBI)**, January 2021 - March 2026, 62 monthly observations, HC1 robust standard errors.
+Event-study regressions of monthly changes in supply and adjusted on-chain volume on the Jarociński–Karadi **pure monetary policy shock (MP)** and **central bank information shock (CBI)**, May 2021 - March 2026, 59 monthly observations (after first-differencing), HC1 robust standard errors.
 
 | Dependent variable (Δ, bn USD) | MP shock | CBI shock | R² |
 |---|---:|---:|---:|
@@ -33,7 +33,7 @@ Event-study regressions of monthly changes in supply and adjusted on-chain volum
 - **A contractionary monetary policy surprise reduces stablecoin supply.** The effect is significant at 5% for USDC and at 10% for USDT; it survives the switch to median-rotation shocks (USDC p=0.05, USDT volume p=0.05) and there are no influential outlier months.
 - **Information shocks work in the opposite direction on supply** (positive point estimates, USDC significant at 10%), consistent with the two-shock decomposition: good news about the economy raises demand for on-chain dollars even as rates rise.
 - **USDC's point estimate is roughly twice USDT's**, but the difference is not statistically significant (p=0.38 for supply). The asymmetry hypothesis is suggestive, not established, on this sample.
-- **Local projections** (Newey-West, 4 lags, horizon 12) put the peak supply response at **h=3 months**: about -4.8 bn USD for USDT and -9.5 bn for USDC per unit shock, again with no significant USDT–USDC difference.
+- **Local projections** (Newey-West, 5 lags, horizon 12) put the peak supply response at **h=3 months**: about -4.8 bn USD for USDT and -9.5 bn for USDC per unit shock, again with no significant USDT–USDC difference.
 - **VIX co-moves strongly with supply changes** (ρ ≈ -0.64 for USDT, -0.56 for USDC): risk-off episodes are the single largest correlate of stablecoin contraction in the sample, which is why the shock-based identification matters.
 
 [Stablecoin supply, 2021-2026](figures/fig1_supply_trends.png)
@@ -47,21 +47,20 @@ Event-study regressions of monthly changes in supply and adjusted on-chain volum
 
 | Series | Source | Frequency | Coverage |
 |---|---|---|---|
-| Monetary policy (MP) and central bank information (CBI) shocks; poor-man's and median-rotation variants | Jarociński & Karadi (2020), updated series | Monthly | Jan 2021 - Mar 2026 |
-| USDT, USDC circulating supply (USD) | <!-- TODO: confirm — Visa Onchain Analytics / Allium dashboard export --> Onchain analytics dashboard export | Monthly | Jan 2021 - Mar 2026 |
-| USDT, USDC adjusted transaction volume (USD) — filtered for bots and inorganic activity | <!-- TODO: confirm source --> Onchain analytics dashboard export | Monthly | Jan 2021 - Mar 2026 |
-| USDT, USDC market capitalisation | CoinMarketCap historical data | Daily | 2025 - Mar 2026 |
+| Monetary policy (MP) and central bank information (CBI) shocks; poor-man's and median-rotation variants | Jarociński & Karadi (2020), updated series | Monthly | May 2021 - Mar 2026 |
+| USDT, USDC circulating supply / market capitalisation (USD) — the two are the same series in this study | CoinMarketCap historical data | Monthly | May 2021 - Mar 2026 |
+| USDT, USDC adjusted transaction volume (USD) — filtered for bots and inorganic activity, Visa/Allium (2024) methodology | Artemis Terminal | Monthly | May 2021 - Mar 2026 |
 | CBOE Volatility Index (VIXCLS) | FRED, Federal Reserve Bank of St. Louis | Daily - monthly | 2021 - 2026 |
 
-The merged monthly panel has 63 observations (62 after first-differencing). Supply gaps before 2022 are linearly interpolated. Raw data files are **not** included in the repository because of provider licence terms; the notebook expects them in the working directory under the file names given in the first cells.
+The merged monthly panel spans May 2021 - March 2026: 59 monthly observations after first-differencing. The sample starts in May 2021, not January 2021, because monthly USDT/USDC supply data are not available earlier. Supply gaps within the sample are linearly interpolated. Raw data files are **not** included in the repository because of provider licence terms; the notebook expects them in the working directory under the file names given in the first cells.
 
 ## Methods
 
 1. **Stationarity.** ADF and KPSS on levels and first differences. Supply and volume are I(1); the MP shock is I(0) by construction; all regressions use monthly differences of the outcomes and shocks in levels.
 2. **Event study.** OLS of Δsupply and Δvolume on MP and CBI shocks, HC1 standard errors, Durbin–Watson and Jarque–Bera diagnostics. Robustness: median-rotation shocks (MP_median, CBI_median); re-estimation without |standardised residual| > 2 months.
 3. **Cross-coin comparison.** Wald-type test of equality of USDT and USDC coefficients.
-4. **Local projections** (Jordà 2005). Horizons 0-12, four lags of the outcome and of each shock, HAC standard errors, 68% and 90% bands. Run separately for MP and CBI shocks.
-5. **VAR.** Five-variable monthly VAR (ΔSupply USDT, ΔSupply USDC, ΔVolume USDT, ΔVolume USDC, MP), lag order by AIC, bootstrap IRF bands (500 replications), robustness to lag order and Cholesky ordering. Given 62 observations the VAR is imprecise and is reported as an exploratory complement to the local projections, not as the main result.
+4. **Local projections** (Jordà 2005). Horizons 0-12, five lags of the outcome and of each shock (AIC-selected; robustness checked at six lags), HAC (Newey-West) standard errors, 68% and 90% bands. Run separately for MP and CBI shocks.
+5. **VAR — exploratory only, not part of the accompanying term paper.** A five-variable monthly VAR (ΔSupply USDT, ΔSupply USDC, ΔVolume USDT, ΔVolume USDC, MP) was estimated first. On this sample size it did not produce stable, interpretable impulse responses — results were highly sensitive to lag order and Cholesky ordering — so local projections were adopted as the primary method instead. The VAR code and IRF figures (`fig7`-`fig9`) remain in the notebook and `figures/` as exploratory material; they are not discussed or reported in the term paper this repository accompanies.
 
 ## Repository layout
 
@@ -75,7 +74,7 @@ The merged monthly panel has 63 observations (62 after first-differencing). Supp
 │   ├── fig4_cbi_shocks.png
 │   ├── fig5_usdt_supply_vs_volume.png
 │   ├── fig6_usdc_supply_vs_volume.png
-│   ├── fig7_var_irf_mp.png
+│   ├── fig7_var_irf_mp.png    # exploratory VAR — not in the term paper, see Methods §5
 │   ├── fig8_lp_irf_mp.png
 │   └── fig9_lp_irf_cbi.png
 ├── requirements.txt
@@ -106,20 +105,27 @@ Place the input files in the repository root:
 
 ## Limitations
 
-- 62 monthly observations is a short sample for a five-variable VAR; the local projections and event study carry the weight of the evidence.
+- 59 monthly observations is a short sample for a five-variable VAR — this is why the VAR did not converge reliably and was dropped in favor of local projections as the primary method (see Methods §5); the local projections and event study carry the weight of the evidence.
 - Shock identification is borrowed from the Jarociński–Karadi decomposition; results inherit its assumptions.
 - Supply and adjusted volume come from a single analytics provider's methodology for filtering inorganic activity.
 - Coefficients are in billions of USD per unit shock, not elasticities; with supply growing from ~60 bn to ~190 bn over the sample, level effects are not directly comparable across years.
 
 ## Citation
 
-<!-- TODO: replace with the thesis / preprint reference and DOI once available -->
+This repository is the code and data companion to the author's HSE Master's term paper:
 
 ```
-Lanina, P. (2026). Dollar-Pegged Stablecoins and US Monetary Policy Shocks:
-Evidence from Identified Shocks, 2021–2026. GitHub repository,
-https://github.com/Kira-Knife/Stablecoin-Analysis
+Lanina, P.A. (2026). Asymmetric Responses of Dollar-Pegged Stablecoins to US
+Monetary Policy Shocks: A Regime-Switching Analysis. Term paper, Master's
+programme "Finance", Banking Institute, HSE University.
+Replication package: https://github.com/Kira-Knife/Stablecoin-Analysis
 ```
+
+A note on the title: it reflects the paper's original working hypotheses. The
+results reported here do not support a statistically significant asymmetry
+between USDT and USDC (H2 is not supported — see Key findings above), and no
+regime-switching model is estimated in this version of the work; that
+extension is left for future (dissertation-stage) research. Cite accordingly.
 
 **References.** 
 Jarocinski, M. & Karadi, P. (2020). Deconstructing Monetary Policy Surprises — The Role of Information Shocks. *American Economic Journal: Macroeconomics*, 12(2), 1-43. 
