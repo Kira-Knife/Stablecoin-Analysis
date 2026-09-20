@@ -105,7 +105,7 @@ Place the input files in the repository root:
 
 ## Limitations
 
-- 59 monthly observations is a short sample for a five-variable VAR — this is why the VAR did not converge reliably and was dropped in favor of local projections as the primary method (see Methods §5); the local projections and event study carry the weight of the evidence.
+- 59 monthly observations is a short sample for a five-variable VAR - this is why the VAR did not converge reliably and was dropped in favor of local projections as the primary method (see Methods §5); the local projections and event study carry the weight of the evidence.
 - Shock identification is borrowed from the Jarociński–Karadi decomposition; results inherit its assumptions.
 - Supply and adjusted volume come from a single analytics provider's methodology for filtering inorganic activity.
 - Coefficients are in billions of USD per unit shock, not elasticities; with supply growing from ~60 bn to ~190 bn over the sample, level effects are not directly comparable across years.
@@ -123,12 +123,12 @@ Replication package: https://github.com/Kira-Knife/Stablecoin-Analysis
 
 A note on the title: it reflects the paper's original working hypotheses. The
 results reported here do not support a statistically significant asymmetry
-between USDT and USDC (H2 is not supported — see Key findings above), and no
+between USDT and USDC (H2 is not supported - see Key findings above), and no
 regime-switching model is estimated in this version of the work; that
 extension is left for future (dissertation-stage) research. Cite accordingly.
 
 **References.** 
-Jarocinski, M. & Karadi, P. (2020). Deconstructing Monetary Policy Surprises — The Role of Information Shocks. *American Economic Journal: Macroeconomics*, 12(2), 1-43. 
+Jarocinski, M. & Karadi, P. (2020). Deconstructing Monetary Policy Surprises - The Role of Information Shocks. *American Economic Journal: Macroeconomics*, 12(2), 1-43. 
 Jorda, O. (2005). Estimation and Inference of Impulse Responses by Local Projections. *American Economic Review*, 95(1), 161-182.
 
 ## Author
