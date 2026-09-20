@@ -45,10 +45,10 @@ Event-study regressions of monthly changes in supply and adjusted on-chain volum
 | Series | Source | Frequency | Coverage |
 |---|---|---|---|
 | Monetary policy (MP) and central bank information (CBI) shocks; poor-man's and median-rotation variants | Jarociński & Karadi (2020), updated series | Monthly | Jan 2021 - Mar 2026 |
-| USDT, USDC circulating supply (USD) | <!-- TODO: confirm — Visa Onchain Analytics / Allium dashboard export --> Onchain analytics dashboard export | Monthly | Jan 2021 – Mar 2026 |
-| USDT, USDC adjusted transaction volume (USD) — filtered for bots and inorganic activity | <!-- TODO: confirm source --> Onchain analytics dashboard export | Monthly | Jan 2021 – Mar 2026 |
+| USDT, USDC circulating supply (USD) | <!-- TODO: confirm — Visa Onchain Analytics / Allium dashboard export --> Onchain analytics dashboard export | Monthly | Jan 2021 - Mar 2026 |
+| USDT, USDC adjusted transaction volume (USD) — filtered for bots and inorganic activity | <!-- TODO: confirm source --> Onchain analytics dashboard export | Monthly | Jan 2021 - Mar 2026 |
 | USDT, USDC market capitalisation | CoinMarketCap historical data | Daily | 2025 - Mar 2026 |
-| CBOE Volatility Index (VIXCLS) | FRED, Federal Reserve Bank of St. Louis | Daily - monthly | 2021 – 2026 |
+| CBOE Volatility Index (VIXCLS) | FRED, Federal Reserve Bank of St. Louis | Daily - monthly | 2021 - 2026 |
 
 The merged monthly panel has 63 observations (62 after first-differencing). Supply gaps before 2022 are linearly interpolated. Raw data files are **not** included in the repository because of provider licence terms; the notebook expects them in the working directory under the file names given in the first cells.
 
@@ -119,8 +119,8 @@ https://github.com/Kira-Knife/Stablecoin-Analysis
 ```
 
 **References.** 
-Jarociński, M. & Karadi, P. (2020). Deconstructing Monetary Policy Surprises — The Role of Information Shocks. *American Economic Journal: Macroeconomics*, 12(2), 1-43. 
-Jordà, Ò. (2005). Estimation and Inference of Impulse Responses by Local Projections. *American Economic Review*, 95(1), 161-182.
+Jarocinski, M. & Karadi, P. (2020). Deconstructing Monetary Policy Surprises — The Role of Information Shocks. *American Economic Journal: Macroeconomics*, 12(2), 1-43. 
+Jorda, O. (2005). Estimation and Inference of Impulse Responses by Local Projections. *American Economic Review*, 95(1), 161-182.
 
 ## Author
 
