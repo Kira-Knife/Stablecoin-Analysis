@@ -40,7 +40,7 @@ Event-study regressions of monthly changes in supply and adjusted on-chain volum
 <img width="1387" height="587" alt="fig1_supply_trends" src="https://github.com/user-attachments/assets/56fe4614-cb93-4e4b-a1f3-9b5ffc773d22" />
 
 
-[Jarociński-Karadi monetary policy shocks](figures/fig3_mp_shocks.png)
+[Jarocinski-Karadi monetary policy shocks](figures/fig3_mp_shocks.png)
 <img width="1387" height="487" alt="fig3_mp_shocks" src="https://github.com/user-attachments/assets/7542ba29-9288-495a-b9a7-48420ce2428b" />
 
 ## Data
